@@ -1,13 +1,22 @@
 <script>
+    import { onDestroy } from 'svelte';
     import State from './state';
     import InitialView from './InitialView.svelte';
     import RunningView from './RunningView.svelte';
 
-    $: ActiveView = update();
+    let active;
 
-    function update() {
-        return InitialView;
-    }
+    const unsubscribe = State.subscribe(state => {
+        console.log(`ViewController detected state ${state}`);
+        switch (state) {
+            case 0:
+                active = InitialView;
+            case 1:
+                active = RunningView;
+        }
+    });
+
+    onDestroy(unsubscribe);
 </script>
 
-<ActiveView />
+<svelte:component this={active} />
