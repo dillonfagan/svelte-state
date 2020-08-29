@@ -8,13 +8,17 @@
 
     const unsubscribe = State.subscribe(state => {
         console.log(`ViewController detected state ${state}`);
+        active = update(state);
+    });
+
+    function update(state) {
         switch (state) {
             case 0:
-                active = InitialView;
+                return InitialView;
             case 1:
-                active = RunningView;
+                return RunningView;
         }
-    });
+    }
 
     onDestroy(unsubscribe);
 </script>
