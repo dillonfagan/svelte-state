@@ -1,6 +1,9 @@
 import { writable } from 'svelte/store';
 
-const state = writable(0);
+const Initial = 0;
+const Running = 1;
+
+const state = writable(Initial);
 
 state.subscribe(value => {
     console.log(`State switched to ${value}`);
@@ -9,11 +12,17 @@ state.subscribe(value => {
 const subscribe = state.subscribe;
 
 function setInitial() {
-    state.set(0);
+    state.set(Initial);
 }
 
 function setRunning() {
-    state.set(1);
+    state.set(Running);
 }
 
-export default { setInitial, setRunning, subscribe }
+export default {
+    Initial,
+    Running,
+    setInitial, 
+    setRunning, 
+    subscribe
+}

@@ -13,9 +13,9 @@
 
     function update(state) {
         switch (state) {
-            case 0:
+            case State.Initial:
                 return InitialView;
-            case 1:
+            case State.Running:
                 return RunningView;
         }
     }
