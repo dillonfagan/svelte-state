@@ -21,6 +21,10 @@ function unlock() {
     state.set(Unlocked);
 }
 
+function open() {
+    state.set(Open);
+}
+
 export default {
     Locked,
     Unlocked,
@@ -28,5 +32,6 @@ export default {
     Closed,
     lock,
     unlock,
+    open,
     subscribe
 }

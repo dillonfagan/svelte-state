@@ -2,6 +2,7 @@
     import { onDestroy } from 'svelte';
     import State from './state';
     import LockedView from './LockedView.svelte';
+    import UnlockedView from './UnlockedView.svelte';
 
     let active;
 
@@ -14,6 +15,8 @@
         switch (state) {
             case State.Locked:
                 return LockedView;
+            case State.Unlocked:
+                return UnlockedView;
         }
     }
 
