@@ -11,18 +11,18 @@ state.subscribe(value => {
 
 const subscribe = state.subscribe;
 
-function setInitial() {
+function toInitial() {
     state.set(Initial);
 }
 
-function setRunning() {
+function toRunning() {
     state.set(Running);
 }
 
 export default {
     Initial,
     Running,
-    setInitial, 
-    setRunning, 
+    toInitial, 
+    toRunning, 
     subscribe
 }

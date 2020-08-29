@@ -7,7 +7,7 @@
 <main>
 	<h1>Hello {name}!</h1>
 	<ViewController />
-	<button on:click={State.setRunning}>Click me</button>
+	<button on:click={State.toRunning}>Click me</button>
 </main>
 
 <style>
