@@ -1,37 +1,33 @@
 import { writable } from 'svelte/store';
+import LockedView from './LockedView.svelte';
+import UnlockedView from './UnlockedView.svelte';
+import OpenView from './OpenView.svelte';
 
-const Locked = 0;
-const Unlocked = 1;
-const Open = 2;
+const state = writable(LockedView);
 
-const state = writable(Locked);
-
-state.subscribe(value => {
-    console.log(`State switched to ${value}`);
+state.subscribe(view => {
+    console.log(`State switched to ${view.name}`);
 });
 
 const subscribe = state.subscribe;
 
 function lock() {
-    state.set(Locked);
+    state.set(LockedView);
 }
 
 function unlock() {
-    state.set(Unlocked);
+    state.set(UnlockedView);
 }
 
 function open() {
-    state.set(Open);
+    state.set(OpenView);
 }
 
 function close() {
-    state.set(Unlocked);
+    state.set(UnlockedView);
 }
 
 export default {
-    Locked,
-    Unlocked,
-    Open,
     lock,
     unlock,
     open,
