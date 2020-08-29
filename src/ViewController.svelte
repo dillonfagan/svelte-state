@@ -3,6 +3,7 @@
     import State from './state';
     import LockedView from './LockedView.svelte';
     import UnlockedView from './UnlockedView.svelte';
+    import OpenView from './OpenView.svelte';
 
     let active;
 
@@ -17,6 +18,8 @@
                 return LockedView;
             case State.Unlocked:
                 return UnlockedView;
+            case State.Open:
+                return OpenView;
         }
     }
 
