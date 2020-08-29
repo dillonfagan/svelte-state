@@ -1,5 +1,4 @@
 <script>
-	import State from './state';
 	import ViewController from './ViewController.svelte'
 	export let name;
 </script>
@@ -7,7 +6,6 @@
 <main>
 	<h1>Hello {name}!</h1>
 	<ViewController />
-	<button on:click={State.toRunning}>Click me</button>
 </main>
 
 <style>

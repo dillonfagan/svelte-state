@@ -1,9 +1,11 @@
 import { writable } from 'svelte/store';
 
-const Initial = 0;
-const Running = 1;
+const Locked = 0;
+const Unlocked = 1;
+const Open = 2;
+const Closed = 3;
 
-const state = writable(Initial);
+const state = writable(Locked);
 
 state.subscribe(value => {
     console.log(`State switched to ${value}`);
@@ -11,18 +13,20 @@ state.subscribe(value => {
 
 const subscribe = state.subscribe;
 
-function toInitial() {
-    state.set(Initial);
+function lock() {
+    state.set(Locked);
 }
 
-function toRunning() {
-    state.set(Running);
+function unlock() {
+    state.set(Unlocked);
 }
 
 export default {
-    Initial,
-    Running,
-    toInitial, 
-    toRunning, 
+    Locked,
+    Unlocked,
+    Open,
+    Closed,
+    lock,
+    unlock,
     subscribe
 }

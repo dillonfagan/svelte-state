@@ -1,8 +1,7 @@
 <script>
     import { onDestroy } from 'svelte';
     import State from './state';
-    import InitialView from './InitialView.svelte';
-    import RunningView from './RunningView.svelte';
+    import LockedView from './LockedView.svelte';
 
     let active;
 
@@ -13,10 +12,8 @@
 
     function update(state) {
         switch (state) {
-            case State.Initial:
-                return InitialView;
-            case State.Running:
-                return RunningView;
+            case State.Locked:
+                return LockedView;
         }
     }
 

@@ -1,1 +1,0 @@
-<p>You switched to the <strong>running</strong> state!</p>
